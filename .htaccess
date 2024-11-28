@@ -1,0 +1,15 @@
+# Habilita el módulo de reescritura de URLs en Apache.
+RewriteEngine On
+
+# Condición 1: Verifica si el archivo solicitado no existe físicamente.
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Condición 2: Verifica si el directorio solicitado no existe físicamente.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Regla de reescritura:
+# Si la URL coincide con el patrón "user/", se redirige internamente a "routes/user.php".
+# - "^user/$": Coincide con una URL que comienza con "user/".
+# - "routes/user.php?/$1": Redirige a este archivo, pasando la captura de la URL como parámetro.
+# - "[L]": Indica que esta es la última regla que se debe evaluar si coincide, evitando procesar reglas adicionales.
+RewriteRule ^(user/)$ routes/user.php?/$1 [L]
