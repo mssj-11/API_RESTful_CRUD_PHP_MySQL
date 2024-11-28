@@ -173,6 +173,16 @@ La API RESTful soporta las siguientes operaciones: **GET**, **POST**, **PUT**, y
 -   Elimina un usuario por su `id`.
 -   Campo obligatorio: `id`
 
+##  Ejemplo de uso:
+```json
+{
+  "id": "1",
+  "name": "Miguel Linares",
+  "email": "miguel.linares@example.com",
+  "phone": "5578512340"
+}
+```
+
 
 # Consideraciones Adicionales de la API
 ## CORS (Cross-Origin Resource Sharing)
